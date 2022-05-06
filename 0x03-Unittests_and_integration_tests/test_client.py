@@ -52,7 +52,8 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch.object(GithubOrgClient,
                           '_public_repos_url',
                           new_callable=PropertyMock,
-                          return_value="https://api.github.com/orgs/{org}")i as m:
+                          return_value="https://api.github.com/orgs{org}") as m:
+
             test_client = GithubOrgClient('holberton')
             test_repo = test_client.public_repos()
             for idx in range(3):
